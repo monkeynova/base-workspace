@@ -38,7 +38,7 @@ while (<>) {
             warn "unchanged $args{name}\n";
           }
       } else {
-          warn "cannot update $args{name} ($github_name)!\n";
+          warn "cannot update $args{name} ($github_name)!\n$json_str\n";
       }
     }
   }
