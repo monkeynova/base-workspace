@@ -23,7 +23,8 @@ while (<>) {
     if ($args{remote} =~ m{git://github.com/(.*)\.git}) {
       my $github_name = $1;
   	my $branch = ($args{branch} && "/$args{branch}") // "/master";
-      my $json_str = `curl -u monkeynova -s https://api.github.com/repos/$github_name/commits$branch`;
+      my $auth = $ENV{"GH_AUTH"} ? "-u $ENV{GH_AUTH} " : "";
+      my $json_str = `curl $auth -s https://api.github.com/repos/$github_name/commits$branch`;
       my $json = JSON::from_json($json_str);
       if (ref($json) ne 'HASH') {
           warn "Cannot find commit for ", $github_name, ": ", $json_str;
