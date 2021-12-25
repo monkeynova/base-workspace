@@ -9,3 +9,9 @@ sh_binary(
     srcs = ["update_workspace.pl"],
     visibility = ["//visibility:public"],
 )
+
+filegroup(
+    name = "base-bazelrc-file",
+    srcs = ["base-bazelrc"],
+    visibility = ["//visibility:public"],
+)
