@@ -20,7 +20,7 @@ while (<>) {
       next;
     }
     
-    if ($args{remote} =~ m{git://github.com/(.*)\.git}) {
+    if ($args{remote} =~ m{https://github.com/(.*)\.git}) {
       my $github_name = $1;
   	my $branch = ($args{branch} && "/$args{branch}") // "/master";
       my $auth = $ENV{"GH_AUTH"} ? "-u $ENV{GH_AUTH} " : "";
