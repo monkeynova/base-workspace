@@ -83,6 +83,12 @@ test:v3 --test_arg=--v=3
 test:v3 --test_output=streamed
 test:v3 --nocache_test_results
 
+run:v4 -- --logtostderr --v=4
+test:v4 --test_arg=--logtostderr
+test:v4 --test_arg=--v=4
+test:v4 --test_output=streamed
+test:v4 --nocache_test_results
+
 build:dcheck --copt=-UNDEBUG
 run:dcheck --copt=-UNDEBUG
 test:dcheck --copt=-UNDEBUG
