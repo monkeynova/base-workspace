@@ -45,7 +45,7 @@ while (<>) {
   }
   
   while (my ($pre_sha, $post_sha) = each %commit_map) {
-      $workspace =~ s{$pre_sha}{$post_sha};
+      $workspace =~ s{$pre_sha}{$post_sha}g;
   }
   
   print $workspace;
