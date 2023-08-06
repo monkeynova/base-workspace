@@ -5,7 +5,7 @@ sh_binary(
 )
 
 sh_binary(
-    name = "update_workspace",
+    name = "update_workspace_tool",
     srcs = ["update_workspace.pl"],
     visibility = ["//visibility:public"],
 )

@@ -1,13 +1,19 @@
-#!/usr/bin/env -S perl -i
+#!/usr/bin/env -S perl
 
 use strict;
 use warnings;
 
 use JSON;
 
+my ($in_file, $out_file) = @ARGV;
+die "USAGE:\n$0 <infile> <outfile>" unless $out_file;
+
+open my $in_fh, '<', $in_file or die "Cannot open $in_file: $!";
+open my $out_fh, '>', $out_file or die "Cannot open $out_file: $!";
+
 my %commit_map;
 my $workspace = "";
-while (<>) {
+while (<$in_fh>) {
   $workspace .= $_;
   next if !eof;
 
@@ -48,6 +54,9 @@ while (<>) {
       $workspace =~ s{$pre_sha}{$post_sha}g;
   }
   
-  print $workspace;
+  print {$out_fh} $workspace;
   $workspace = "";
 }
+
+close $in_fh or die "Cannot close $in_file: $!";
+close $out_fh or die "Cannot close $out_file: $!";

@@ -6,9 +6,19 @@ def default_rules():
       actual = "@com_monkeynova_base_workspace//:cleanup",
   )
   
-  native.alias(
-      name = "update_workspace",
-      actual = "@com_monkeynova_base_workspace//:update_workspace",
+  native.genrule(
+    name = "new_workspace_file",
+    outs = ["WORKSPACE.new"],
+    srcs = [":WORKSPACE"],
+    tools = ["@com_monkeynova_base_workspace//:update_workspace_tool"],
+    cmd = "perl $(location @com_monkeynova_base_workspace//:update_workspace_tool) $(location :WORKSPACE) $@",
+  )
+
+  write_source_file(
+    name = "update_workspace",
+    in_file = ":new_workspace_file",
+    out_file = "WORKSPACE",
+    diff_test = False,
   )
   
   write_source_file(
