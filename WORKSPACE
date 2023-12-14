@@ -1,5 +1,7 @@
 workspace(name="com_monkeynova_base_workspace")
 
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
 git_repository(
     name = "aspect_bazel_lib",
     remote = "https://github.com/aspect-build/bazel-lib.git",

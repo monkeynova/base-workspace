@@ -1,0 +1,10 @@
+###############################################################################
+# Bazel now uses Bzlmod by default to manage external dependencies.
+# Please consider migrating your external dependencies from WORKSPACE to MODULE.bazel.
+#
+# For more details, please check https://github.com/bazelbuild/bazel/issues/18958
+###############################################################################
+
+module(name = "com_monkeynova_base_workspace")
+bazel_dep(name = "aspect_bazel_lib", version = "2.0.3")
+
