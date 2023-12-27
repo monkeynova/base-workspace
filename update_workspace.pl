@@ -17,7 +17,7 @@ while (<$in_fh>) {
   $workspace .= $_;
   next if !eof;
 
-  while ($workspace =~ m{git_repository\(([^)]+)\)}sg) {
+  while ($workspace =~ m{git_override\(([^)]+)\)}sg) {
     my $repository = $1;
     my %args = $repository =~ /([a-z_]+)\s*=\s*\"(.*?)(?!<\")\"/g;
     next if $commit_map{$args{commit}};

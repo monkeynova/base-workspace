@@ -15,3 +15,9 @@ filegroup(
     srcs = ["base-bazelrc"],
     visibility = ["//visibility:public"],
 )
+
+filegroup(
+    name = "gitignore",
+    srcs = [".gitignore"],
+    visibility = ["//visibility:public"],
+)

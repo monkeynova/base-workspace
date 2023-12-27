@@ -26,3 +26,9 @@ def default_rules():
       in_file = "@com_monkeynova_base_workspace//:base-bazelrc-file",
       out_file = "base-bazelrc",
   )
+
+  write_source_file(
+      name = "write_gitignore",
+      in_file = "@com_monkeynova_base_workspace//:gitignore",
+      out_file = ".gitignore",
+  )
