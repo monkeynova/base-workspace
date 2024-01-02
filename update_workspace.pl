@@ -39,13 +39,13 @@ while (<$in_fh>) {
       my $sha = $json->{sha};
       if ($sha) {
           if ($args{commit} ne $sha) {
-            warn "updating $args{name} ($github_name) => $sha\n";
+            warn "updating $args{module_name} ($github_name) => $sha\n";
             $commit_map{$args{commit}} = $sha;
           } else {
-            warn "unchanged $args{name}\n";
+            warn "unchanged $args{module_name}\n";
           }
       } else {
-          warn "cannot update $args{name} ($github_name)!\n$json_str\n";
+          warn "cannot update $args{module_name} ($github_name)!\n$json_str\n";
       }
     }
   }
