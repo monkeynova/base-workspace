@@ -1,10 +1,14 @@
+load("//:default_rules.bzl", "update_workspace_rule")
+
+update_workspace_rule(workspace_dep = "update_workspace.date")
+
 sh_binary(
     name = "cleanup",
     srcs = ["cleanup.sh"],
     visibility = ["//visibility:public"],
 )
 
-sh_binary(
+filegroup(
     name = "update_workspace_tool",
     srcs = ["update_workspace.pl"],
     visibility = ["//visibility:public"],
