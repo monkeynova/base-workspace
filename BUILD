@@ -1,4 +1,5 @@
 load("//:default_rules.bzl", "update_workspace_rule")
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 
 update_workspace_rule(workspace_dep = "update_workspace.date")
 

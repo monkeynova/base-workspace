@@ -6,5 +6,5 @@
 ###############################################################################
 
 module(name = "com_monkeynova_base_workspace")
-bazel_dep(name = "aspect_bazel_lib", version = "2.21.2")
-
+bazel_dep(name = "aspect_bazel_lib", version = "2.22.5")
+bazel_dep(name = "rules_shell", version = "0.6.1")
